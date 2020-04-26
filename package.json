@@ -1,0 +1,29 @@
+{
+  "name": "@away0x/react-rx-store",
+  "version": "1.0.0",
+  "description": "react state management with rxjs",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "homepage": "https://github.com/Away0x/react-rx-store",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Away0x/react-rx-store"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Away0x",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^16.9.34",
+    "immer": "^6.0.3",
+    "react": "^16.13.1",
+    "rxjs": "^6.5.5",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=15",
+    "rxjs": "^6.5.5",
+    "immer": "^6.0.3"
+  }
+}
