@@ -1,47 +1,40 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ReactDOM from 'react-dom';
 
+import Display from './Display';
+
+// ------------------------------------------------------------------------------------
 // import { counterStore, Store } from './store';
-import { counter1Store, counter2Store, Store } from './multiStore';
 
 // function CounterDisplay() {
 //   const { count } = Store.useStore();
-  
-//   const decrement = () => {
-//     counterStore.decrement();
-//   };
+//   const decrement = useCallback(() => { counterStore.decrement(); }, []);
+//   const increment = useCallback(() => { counterStore.increment(); }, []);
 
-//   const increment = () => {
-//     counterStore.increment();
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={decrement}>-</button>
-//       <span>{count}</span>
-//       <button onClick={increment}>+</button>
-//     </div>
-//   );
+//   return <Display count={count} decrement={decrement} increment={increment} />;
 // }
+
+// ------------------------------------------------------------------------------------
+import { counter1Store, counter2Store, Store } from './multiStore';
 
 function CounterDisplay() {
   const { counter1, counter2 } = Store.useStore();
 
-  const decrement1 = () => { counter1Store.decrement(); };
-  const increment1 = () => { counter1Store.increment(); };
+  // const decrement1 = () => { counter1Store.decrement(); };
+  // const increment1 = () => { counter1Store.increment(); };
+  // const decrement2 = () => { counter2Store.decrement(); };
+  // const increment2 = () => { counter2Store.increment(); };
 
-  const decrement2 = () => { counter2Store.decrement(); };
-  const increment2 = () => { counter2Store.increment(); };
+  const decrement1 = useCallback(() => { counter1Store.decrement(); }, []);
+  const increment1 = useCallback(() => { counter1Store.increment(); }, []);
+  const decrement2 = useCallback(() => { counter2Store.decrement(); }, []);
+  const increment2 = useCallback(() => { counter2Store.increment(); }, []);
 
   return (
     <div>
-      <button onClick={decrement1}>-</button>
-      <span>{counter1.count}</span>
-      <button onClick={increment1}>+</button>
+      <Display tag="Display1" count={counter1.count} decrement={decrement1} increment={increment1} />
       <hr/>
-      <button onClick={decrement2}>-</button>
-      <span>{counter2.count}</span>
-      <button onClick={increment2}>+</button>
+      <Display tag="Display2" count={counter2.count} decrement={decrement2} increment={increment2} />
     </div>
   );
 }
