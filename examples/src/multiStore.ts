@@ -64,7 +64,7 @@ export const Store = createContextStore(() => {
   };
 });
 
-// debug logging
+// normal logging
 // counter1Store.subscribe((state) => {
 //   console.log('counter1Store current state', state)
 // });
