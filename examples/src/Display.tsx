@@ -13,7 +13,7 @@ function Display({
   decrement,
   increment,
 }: DisplayProps) {
-  console.log(`${tag} rerender`);
+  // console.log(`${tag} rerender`);
 
   return (
     <div>

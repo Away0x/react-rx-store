@@ -47,15 +47,15 @@ export abstract class BehaviorSubjectStore<T = {}> implements ISubjectStore<T> {
   */
 
   public commit(updateState: (draft: Draft<T>) => void) {
-    // console.group(`${this.LOG_TAG} commit`);
-    // console.log(`prev state: `, this.state);
     const newState = produce(this.state, (draft) => {
       updateState(draft);
     });
 
-    this.subject && this.subject.next(newState);
-    // console.log(`next state: `, newState);
-    // console.groupEnd();
+    if (!this.subject) {
+      console.warn(`[BehaviorSubjectStore#commit] subject 还未初始化`);
+      return;
+    }
+    this.subject.next(newState);
   }
 
   public reset() {

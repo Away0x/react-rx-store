@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import Display from './Display';
@@ -29,6 +29,11 @@ function CounterDisplay() {
   const increment1 = useCallback(() => { counter1Store.increment(); }, []);
   const decrement2 = useCallback(() => { counter2Store.decrement(); }, []);
   const increment2 = useCallback(() => { counter2Store.increment(); }, []);
+
+  // 默认 subject 是在订阅时才初始化的，所以这里得保证使用 commit 前得先初始化了 subject
+  useEffect(() => {
+    increment1();
+  }, [increment1]);
 
   return (
     <div>

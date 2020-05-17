@@ -50,7 +50,11 @@ export abstract class SubjectStore<T extends {}> implements ISubjectStore<T> {
       updateState(draft);
     });
 
-    this.subject && this.subject.next(newState);
+    if (!this.subject) {
+      console.warn(`[SubjectStore#commit] subject 还未初始化`);
+      return;
+    }
+    this.subject.next(newState);
   }
 
   public reset() {
