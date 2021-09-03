@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/react": "^16.9.34",
-    "immer": "^6.0.3",
+    "immer": "^9.0.6",
     "react": "^16.13.1",
     "rxjs": "^6.5.5",
     "typescript": "^3.8.3"
@@ -24,6 +24,6 @@
   "peerDependencies": {
     "react": ">=15",
     "rxjs": "^6.5.5",
-    "immer": "^6.0.3"
+    "immer": "^9.0.6"
   }
 }
